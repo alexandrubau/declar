@@ -3,8 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Descărcă de aici declarația pe propria răspundere în vederea deplasării pe teritoriul României, în contextul pandemiei de coronavirus.">
+
+    <meta property="og:url" content="https://alexandrubau.github.io/declar">
+    <meta property="og:title" content="Descarcă declarația pe propria raspundere">
+    <meta property="og:description" content="Descărcă de aici declarația pe propria răspundere în vederea deplasării pe teritoriul României, în contextul pandemiei de coronavirus.">
+    <meta property="og:image" content="https://assets.republica.ro/20200322/393dbd37682bcbee56fdeb133aa0912cba5e7a7b.jpg">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.css">
 
     <title>Declarație pe propria răspundere pentru deplasare | COVID-19</title>
   </head>
@@ -241,6 +249,10 @@
                     <label for="form_emergency_details">Detalii situație de urgență</label>
                     <textarea class="form-control" name="form_emergency_details" id="form_emergency_details" rows="2" disabled></textarea>
                 </div>
+                <div class="form-group">
+                    <label for="form_date">Data</label>
+                    <input type="text" class="form-control" name="form_date" id="form_date" required>
+                </div>
             </div>
             <h3>Semnătură</h3>
             <p class="small text-muted">Folosiți degetul sau cursorul pentru a semna.</p>
@@ -251,13 +263,14 @@
             <a href="javascript:void(0);" class="btn btn-secondary btn-block" id="form-signature-clear">Șterge semnatura</a>
             <button type="submit" class="btn btn-primary btn-block">Descarcă declarație</button>
         </form>
-        <p class="small text-muted text-center mt-3">Această aplicație a fost creată de voluntari. <br> Vezi <a href="https://github.com/alexandrubau/declar" target="_blank">aici</a> codul sursă al aplicației. <br> #StamAcasa</p>
+        <p class="small text-muted text-center mt-3">Această aplicație a fost creată de voluntari. <br> Dorești să te implici? Vezi pe <a href="https://github.com/alexandrubau/declar" target="_blank">Github</a> codul sursă al aplicației. <br> #StamAcasa</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@1.5.3/dist/jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.js"></script>
     <script src="font.js"></script>
     <script src="script.js"></script>
   </body>

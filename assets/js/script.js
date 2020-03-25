@@ -42,12 +42,19 @@ $(document).ready(function () {
 
         let data = getFormData($('form'));
 
-        createPdfDoc(data);
+        let doc = createDoc(data);
+
+        downloadDoc(doc);
     });
 
     $(window).on('resize', function () {
 
         resizeSignaturePad(signaturePad);
+    });
+
+    $('#form_date').datepicker({
+        autoPick: true,
+        format: 'dd.mm.yyyy'
     });
 
     function populateOnSameAddress(data) {
@@ -62,16 +69,6 @@ $(document).ready(function () {
         data.form_appartment_no = "";
 
         return data;
-    }
-
-    function getCurrentDate() {
-
-        let date = new Date();
-        let year = date.getUTCFullYear();
-        let month = date.getUTCMonth() + 1; // months from 1-12
-        let day = date.getDate();
-
-        return day + '.' + month + '.' + year;
     }
 
     function getFormData($form) {
@@ -111,7 +108,7 @@ $(document).ready(function () {
         signaturePad.clear();
     }
 
-    function createPdfDoc(data) {
+    function createDoc(data) {
 
         let doc = new jsPDF();
 
@@ -178,12 +175,22 @@ $(document).ready(function () {
         doc.text(reasons[data.form_reason] ? reasons[data.form_reason] : '', 20, 190, { maxWidth: 180 });
         doc.text(data.form_emergency_details ? data.form_emergency_details : '', 20, 195, { maxWidth: 180 });
 
-        doc.text(getCurrentDate(), 30, 230);
+        doc.text(data.form_date, 30, 230);
 
         let signatureImage = signaturePad.toDataURL();
 
         doc.addImage(signatureImage, 'PNG', 135, 235, 50, 25);
 
-        doc.save('declaratie_pe_propria_raspundere.pdf');
+        return doc.output('datauristring');
+    }
+
+    function downloadDoc(content) {
+
+        const downloadLink = document.createElement('a');
+        const fileName = 'declaratie_pe_propria_raspundere.pdf';
+    
+        downloadLink.href = content;
+        downloadLink.download = fileName;
+        downloadLink.click();
     }
 });
