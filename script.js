@@ -4,13 +4,13 @@ $(document).ready(function () {
     resizeSignaturePad(signaturePad);
 
     let reasons = {
-        reason_1: 'deplasarea intre domiciliu si locul de munca, atunci cand activitatea profesionala este esentiala si nu poate fi organizata sub forma de lucru la distanta sau deplasarea in interes profesional care nu poate fi amanata',
-        reason_2: 'consult medical de specialitate care nu poate fi amanat',
-        reason_3: 'deplasare pentru cumparaturi de prima necesitate la unitati comerciale din zona de domiciliu',
-        reason_4: 'deplasare pentru asigurarea asistentei pentru persoane in varsta, vulnerabile sau pentru insotirea copiilor',
-        reason_5: 'deplasare scurta, langa domiciliu, pentru desfasurarea de activitati fizice individuale, in aer liber, cu excluderea oricarei forme de activitate sportiva colectiva',
-        reason_6: 'deplasare scurta, langa domiciliu, legata de nevoile animalelor de companie',
-        reason_other: 'deplasare pentru rezolvarea urmatoarei situatii urgente:',
+        reason_1: 'deplasarea între domiciliu și locul de muncă, atunci când activitatea profesională este esențială și nu poate fi organizată sub formă de lucru la distanță sau deplasarea în interes profesional care nu poate fi amanată',
+        reason_2: 'consult medical de specialitate care nu poate fi amânat',
+        reason_3: 'deplasare pentru cumpărături de primă necesitate la unități comerciale din zona de domiciliu',
+        reason_4: 'deplasare pentru asigurarea asistenței pentru persoane în varstă, vulnerabile sau pentru insoțirea copiilor',
+        reason_5: 'deplasare scurtă, lângă domiciliu, pentru desfășurarea de activități fizice individuale, în aer liber, cu excluderea oricărei forme de activitate sportivă colectivă',
+        reason_6: 'deplasare scurtă, lângă domiciliu, legată de nevoile animalelor de companie',
+        reason_other: 'deplasare pentru rezolvarea urmatoarei situații urgente:',
     };
 
     let formAddressSameInput = $('#form_address_same');
@@ -48,6 +48,7 @@ $(document).ready(function () {
     $(window).on('resize', resizeSignaturePad);
 
     function populateOnSameAddress(data) {
+
         data.form_city = "";
         data.form_county = "";
         data.form_street = "";
@@ -58,6 +59,16 @@ $(document).ready(function () {
         data.form_appartment_no = "";
 
         return data;
+    }
+
+    function getCurrentDate() {
+
+        let date = new Date();
+        let year = date.getUTCFullYear();
+        let month = date.getUTCMonth() + 1; // months from 1-12
+        let day = date.getDate();
+
+        return day + '.' + month + '.' + year;
     }
 
     function getFormData($form) {
@@ -92,7 +103,7 @@ $(document).ready(function () {
 
         canvas.width = canvas.offsetWidth * ratio;
         canvas.height = canvas.offsetHeight * ratio;
-        canvas.getContext("2d").scale(ratio, ratio);
+        canvas.getContext('2d').scale(ratio, ratio);
 
         signaturePad.clear();
       }
@@ -102,28 +113,29 @@ $(document).ready(function () {
         let doc = new jsPDF();
 
         doc.setFontSize(12);
+        doc.setFont('Roboto', 'normal');
 
-        doc.text('Declaratie pe proprie raspundere,', 105, 30, { align: 'center' });
-        doc.text('Subsemnatul(a) _________________________, fiul/fica lui __________ si al __________,', 25, 50);
-        doc.text('domiciliat(a) in __________________________, judet/sectorul __________________________,', 15, 60);
-        doc.text('strada _______________________, numar ___, bloc ___, scara ___, etaj ___, apartament ___,', 15, 70);
-        doc.text('avand CNP ___________________________________, BI/CI serie _____, numar __________,', 15, 80);
-        doc.text('Locuind(1) in fapt in _________________________, judet/sectorul _______________________,', 15, 100);
-        doc.text('strada _______________________, numar ___, bloc ___, scara ___, etaj ___, apartament ___,', 15, 110);
-        doc.text('Cunoscand prevederile art. 326, referitoare la falsul in declaratii(2), precum si ale art. 352', 15, 130);
-        doc.text('referitoare la zadarnicirea combaterii bolilor din Noul Cod Penal, declar pe proprie raspundere', 15, 140);
-        doc.text('faptul ca ma deplasez in interes personal/profesional, intre orele ________________________,', 15, 150);
-        doc.text('de la _______________________________________________________________________', 15, 160);
-        doc.text('pana la _____________________________________________________________________', 15, 170);
+        doc.text('Declarație pe proprie răspundere,', 105, 30, { align: 'center' });
+        doc.text('Subsemnatul(a) _______________________________, fiul/fiica lui ____________ și al ____________,', 25, 50);
+        doc.text('domiciliat(ă) în ________________________________, județ/sectorul ________________________________,', 15, 60);
+        doc.text('stradă _____________________________, număr ____, bloc ____, scară ____, etaj ____, apartament ____,', 15, 70);
+        doc.text('având CNP _________________________________________, BI/CI serie _________, număr _____________,', 15, 80);
+        doc.text('Locuind(1) în fapt în ______________________________, județ/sectorul ____________________________,', 15, 100);
+        doc.text('stradă _____________________________, număr ____, bloc ____, scară ____, etaj ____, apartament ____,', 15, 110);
+        doc.text('Cunoscând prevederile art. 326, referitoare la falsul în declarații(2), precum și ale art. 352', 15, 130);
+        doc.text('referitoare la zădarnicirea combaterii bolilor din Noul Cod Penal, declar pe proprie răspundere', 15, 140);
+        doc.text('faptul că mă deplasez în interes personal/profesional, între orele ___________________________,', 15, 150);
+        doc.text('de la ______________________________________________________________________________________', 15, 160);
+        doc.text('pana la ___________________________________________________________________________________', 15, 170);
         doc.text('pentru:', 15, 180);
-        doc.text('Atat declar, sustin si semnez.', 15, 220);
+        doc.text('Atât declar, susțin și semnez.', 15, 220);
         doc.text('Data:', 15, 230);
         doc.text('Semnatura:', 140, 230);
 
         doc.setFontSize(8);
 
-        doc.text('(1) Se declara situatia in care persoana nu locuieste la domiciliul prevazut în actul de identitate.', 15, 265, { maxWidth: 185 });
-        doc.text('(2) Declararea necorespunzatoare a adevarului, facuta unei persoane dintre cele prevazute in art. 175 sau unei unitati in care aceasta isi desfasoara activitatea in vederea producerii unei consecinte juridice, pentru sine sau pentru altul, atunci cand, potrivit legii ori imprejurarilor, declaratia facuta serveste la producerea acelei consecinte, se pedepseste cu inchisoare de la 3 luni la 2 ani sau cu amenda.', 15, 270, { maxWidth: 185 });
+        doc.text('(1) Se declară situația în care persoana nu locuiește la domiciliul prevăzut în actul de identitate.', 15, 265, { maxWidth: 185 });
+        doc.text('(2) Declararea necorespunzătoare a adevarului, facută unei persoane dintre cele prevăzute în art. 175 sau unei unităti în care aceasta își desfășoară activitatea în vederea producerii unei consecințe juridice, pentru sine sau pentru altul, atunci când, potrivit legii ori împrejurărilor, declarația făcută servește la producerea acelei consecințe, se pedepsește cu închisoare de la 3 luni la 2 ani sau cu amendă.', 15, 270, { maxWidth: 185 });
 
         doc.setFontSize(10);
 
@@ -163,7 +175,7 @@ $(document).ready(function () {
         doc.text(reasons[data.form_reason] ? reasons[data.form_reason] : '', 20, 190, { maxWidth: 180 });
         doc.text(data.form_emergency_details ? data.form_emergency_details : '', 20, 195, { maxWidth: 180 });
 
-        doc.text('10.02.2020', 30, 230);
+        doc.text(getCurrentDate(), 30, 230);
 
         let signatureImage = signaturePad.toDataURL();
 
