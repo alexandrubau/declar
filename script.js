@@ -47,15 +47,15 @@ $(document).ready(function () {
 
     $(window).on('resize', resizeSignaturePad);
 
-    function copySameAddress(data) {
-        data.form_city = data.form_id_city;
-        data.form_county = data.form_id_county;
-        data.form_street = data.form_id_street;
-        data.form_street_no = data.form_id_street_no;
-        data.form_building = data.form_id_building;
-        data.form_building_entrance = data.form_id_building_entrance;
-        data.form_building_floor = data.form_id_building_floor;
-        data.form_appartment_no = data.form_id_appartment_no;
+    function populateOnSameAddress(data) {
+        data.form_city = "";
+        data.form_county = "";
+        data.form_street = "";
+        data.form_street_no = "";
+        data.form_building = "";
+        data.form_building_entrance = "";
+        data.form_building_floor = "";
+        data.form_appartment_no = "";
 
         return data;
     }
@@ -72,7 +72,7 @@ $(document).ready(function () {
         let isSameAddressChecked = formAddressSameInput.is(':checked');
 
         if(isSameAddressChecked) {
-            json = copySameAddress(json)
+            json = populateOnSameAddress(json)
         }
 
         return json;
