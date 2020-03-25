@@ -11,10 +11,12 @@ $(document).ready(function () {
         reason_5: 'deplasare scurta, langa domiciliu, pentru desfasurarea de activitati fizice individuale, in aer liber, cu excluderea oricarei forme de activitate sportiva colectiva',
         reason_6: 'deplasare scurta, langa domiciliu, legata de nevoile animalelor de companie',
         reason_other: 'deplasare pentru rezolvarea urmatoarei situatii urgente:',
-    }
+    };
 
-    $('#form_address_same').on('change', function (event) {
-        
+    let formAddressSameInput = $('#form_address_same');
+
+    formAddressSameInput.on('change', function (event) {
+
         let isChecked = $(this).is(':checked');
 
         $('.js-form-residence :input:not(#form_address_same)').prop('disabled', isChecked);
@@ -39,21 +41,40 @@ $(document).ready(function () {
         event.preventDefault();
 
         let data = getFormData($('form'));
-        
+
         createPdfDoc(data);
     });
 
     $(window).on('resize', resizeSignaturePad);
 
+    function populateOnSameAddress(data) {
+        data.form_city = "";
+        data.form_county = "";
+        data.form_street = "";
+        data.form_street_no = "";
+        data.form_building = "";
+        data.form_building_entrance = "";
+        data.form_building_floor = "";
+        data.form_appartment_no = "";
+
+        return data;
+    }
+
     function getFormData($form) {
 
-        var data = $form.serializeArray();
-        var json = {};
-    
+        let data = $form.serializeArray();
+        let json = {};
+
         $.map(data, function(item){
             json[item.name] = item.value;
         });
-    
+
+        let isSameAddressChecked = formAddressSameInput.is(':checked');
+
+        if(isSameAddressChecked) {
+            json = populateOnSameAddress(json)
+        }
+
         return json;
     }
 
@@ -65,23 +86,23 @@ $(document).ready(function () {
     }
 
     function resizeSignaturePad(signaturePad) {
-        
+
         let canvas = $('canvas').get(0);
         let ratio =  Math.max(window.devicePixelRatio || 1, 1);
-      
+
         canvas.width = canvas.offsetWidth * ratio;
         canvas.height = canvas.offsetHeight * ratio;
         canvas.getContext("2d").scale(ratio, ratio);
-      
+
         signaturePad.clear();
       }
 
     function createPdfDoc(data) {
 
-        let doc = new jsPDF()
+        let doc = new jsPDF();
 
         doc.setFontSize(12);
- 
+
         doc.text('Declaratie pe proprie raspundere,', 105, 30, { align: 'center' });
         doc.text('Subsemnatul(a) _________________________, fiul/fica lui __________ si al __________,', 25, 50);
         doc.text('domiciliat(a) in __________________________, judet/sectorul __________________________,', 15, 60);
