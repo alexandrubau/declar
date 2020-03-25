@@ -45,7 +45,10 @@ $(document).ready(function () {
         createPdfDoc(data);
     });
 
-    $(window).on('resize', resizeSignaturePad);
+    $(window).on('resize', function () {
+
+        resizeSignaturePad(signaturePad);
+    });
 
     function populateOnSameAddress(data) {
 
@@ -106,7 +109,7 @@ $(document).ready(function () {
         canvas.getContext('2d').scale(ratio, ratio);
 
         signaturePad.clear();
-      }
+    }
 
     function createPdfDoc(data) {
 
@@ -181,6 +184,6 @@ $(document).ready(function () {
 
         doc.addImage(signatureImage, 'PNG', 135, 235, 50, 25);
 
-        doc.save('a4.pdf');
+        doc.save('declaratie_pe_propria_raspundere.pdf');
     }
 });
