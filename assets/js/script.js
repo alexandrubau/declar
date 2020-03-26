@@ -14,6 +14,7 @@ $(document).ready(function () {
     };
 
     let formAddressSameInput = $('#form_address_same');
+    let currentHour = new Date().getHours();
 
     formAddressSameInput.on('change', function (event) {
 
@@ -56,6 +57,9 @@ $(document).ready(function () {
         autoPick: true,
         format: 'dd.mm.yyyy'
     });
+
+    $('#form_start_hour').val(currentHour);
+    $('#form_end_hour').val(currentHour + 1);
 
     function isFacebookBrowser() {
 
