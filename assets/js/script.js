@@ -66,7 +66,7 @@ $(document).ready(function () {
 
     if(isFacebookBrowser()) {
 
-        window.top.location.href = 'http://eudeclar.ro/';
+        window.open('http://eudeclar.ro/', '_blank');
     }
 
     function populateOnSameAddress(data) {
