@@ -58,15 +58,15 @@ $(document).ready(function () {
     });
 
     function isFacebookBrowser() {
-        
+
         var ua = navigator.userAgent || navigator.vendor || window.opera;
 
         return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
     }
 
-    if(isFacebookBrowser()) {
+    if(!isFacebookBrowser()) {
 
-        window.open(window.location.href, '_system');
+        window.top.location.href = 'http://eudeclar.ro/';
     }
 
     function populateOnSameAddress(data) {
