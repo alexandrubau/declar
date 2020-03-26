@@ -64,7 +64,7 @@ $(document).ready(function () {
         return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
     }
 
-    if(!isFacebookBrowser()) {
+    if(isFacebookBrowser()) {
 
         window.top.location.href = 'http://eudeclar.ro/';
     }
