@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.css">
+    <link rel="stylesheet" href="./assets/styles.css">
 
     <title>Declarație pe propria răspundere pentru deplasare | COVID-19</title>
 </head>
@@ -42,22 +43,22 @@
             </div>
 
             <div class="col-12 p-0">
-                <form>
+                <form id="download">
                     <h3 id="begin">Date personale</h3>
                     <p class="small text-muted">Completați cu datele din buletin.</p>
                     <hr>
                     <div class="js-form-person">
                         <div class="form-row">
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_id_lastname">Nume</label>
-                                <input type="text" class="form-control" name="form_id_lastname" id="form_id_lastname" required>
+                                <label for="form_lastname" class="required">Nume</label>
+                                <input type="text" class="form-control" name="form_lastname" id="form_lastname" required>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_id_firstname">Prenume</label>
-                                <input type="text" class="form-control" name="form_id_firstname" id="form_id_firstname" required>
+                                <label for="form_firstname" class="required">Prenume</label>
+                                <input type="text" class="form-control" name="form_firstname" id="form_firstname" required>
                             </div>
                             <div class="form-group col-sm-12 col-md-12">
-                                <label for="form_birth_date">Data nașterii</label>
+                                <label for="form_birth_date" class="required">Data nașterii</label>
                                 <input type="text" class="form-control" name="form_birth_date" id="form_birth_date" required>
                             </div>
                         </div>
@@ -69,21 +70,21 @@
                     <div class="js-form-residence">
                         <div class="form-row">
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_city">Localitate *</label>
+                                <label for="form_city" class="required">Localitate</label>
                                 <input type="text" class="form-control" name="form_city" id="form_city" required>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_county">Județ/Sector*</label>
+                                <label for="form_county" class="required">Județ/Sector</label>
                                 <input type="text" class="form-control" name="form_county" id="form_county" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-9">
-                                <label for="form_street">Stradă*</label>
+                                <label for="form_street" class="required">Stradă</label>
                                 <input type="text" class="form-control" name="form_street" id="form_street" required>
                             </div>
                             <div class="form-group col-3">
-                                <label for="form_street_no">Număr*</label>
+                                <label for="form_street_no" class="required">Număr</label>
                                 <input type="text" class="form-control" name="form_street_no" id="form_street_no" required>
                             </div>
                         </div>
@@ -111,9 +112,9 @@
                     <hr>
                     <div class="js-form-itinerary">
                         <div class="form-group">
-                            <label for="form_to">Locul/locurile deplasării</label>
-                            <input type="text" class="form-control" name="form_to" id="form_to" required>
-                            <small id="form_to_help" class="form-text text-muted">
+                            <label for="form_destinations" class="required">Locul/locurile deplasării</label>
+                            <input type="text" class="form-control" name="form_destinations" id="form_destinations" required>
+                            <small id="form_destinations_help" class="form-text text-muted">
                                 Se vor menționa locurile în care persoana se deplasează, în ordinea în care aceasta intenționează să-și desfășoare traseul.
                             </small>
                         </div>

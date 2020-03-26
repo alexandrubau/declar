@@ -121,34 +121,34 @@ var templateString = `
     <div class="paragraph" style="margin-top: 0.8cm;">
         <div class="info">Motivul deplasării:</div>
         <div class="radio-paragraph">
-            <div class="radio-checkbox-row"><div class="radio {{checked1}}"></div></div>
+            <div class="radio-checkbox-row"><div class="radio {{reason_1}}"></div></div>
             <div class="radio-text-first-row">1. interes profesional, inclusiv între locuință/gospodărie și
                 locul/locurile de desfășurare a
             </div>
             <div class="radio-text-row">activității profesionale și înapoi</div>
         </div>
         <div class="radio-paragraph">
-            <div class="radio-checkbox-row"><div class="radio {{checked2}}"></div></div>
+            <div class="radio-checkbox-row"><div class="radio {{reason_2}}"></div></div>
             <div class="radio-text-first-row">2. asigurarea de bunuri care acoperă necesitățile de bază ale persoanelor
                 și animalelor de
             </div>
             <div class="radio-text-row">companie/domestice</div>
         </div>
         <div class="radio-paragraph">
-            <div class="radio-checkbox-row"><div class="radio {{checked3}}"></div></div>
+            <div class="radio-checkbox-row"><div class="radio {{reason_3}}"></div></div>
             <div class="radio-text-first-row">3. asistență medicală care nu poate fi amânată și nici realizată de la
                 distanță
             </div>
         </div>
         <div class="radio-paragraph">
-            <div class="radio-checkbox-row"><div class="radio {{checked4}}"></div></div>
+            <div class="radio-checkbox-row"><div class="radio {{reason_4}}"></div></div>
             <div class="radio-text-first-row">4. motive justificate, precum îngrijirea/ însoțirea unui minor/copilului,
                 asistența persoanelor
             </div>
             <div class="radio-text-row">vârstnice, bolnave sau cu dizabilități ori deces al unui membru de familie</div>
         </div>
         <div class="radio-paragraph">
-            <div class="radio-checkbox-row"><div class="radio {{checked5}}"></div></div>
+            <div class="radio-checkbox-row"><div class="radio {{reason_5}}"></div></div>
             <div class="radio-text-first-row">5. activitate fizică individuală (cu excluderea oricăror activități
                 sportive de echipă/ colective)
             </div>
@@ -156,7 +156,7 @@ var templateString = `
             </div>
         </div>
         <div class="radio-paragraph">
-            <div class="radio-checkbox-row"><div class="radio {{checked6}}"></div></div>
+            <div class="radio-checkbox-row"><div class="radio {{reason_6}}"></div></div>
             <div class="radio-text-first-row">6. realizarea de activități agricole</div>
         </div>
         <div class="radio-paragraph">
@@ -164,21 +164,21 @@ var templateString = `
             - - - - - - - - - - - - - - -
         </div>
         <div class="radio-paragraph">
-            <div class="radio-checkbox-row"><div class="radio {{checked7}}"></div></div>
+            <div class="radio-checkbox-row"><div class="radio {{reason_7}}"></div></div>
             <div class="radio-text-first-row">7. donarea de sânge, la centrele de transfuzie sanguină</div>
         </div>
         <div class="radio-paragraph">
-            <div class="radio-checkbox-row"><div class="radio {{checked8}}"></div></div>
+            <div class="radio-checkbox-row"><div class="radio {{reason_8}}"></div></div>
             <div class="radio-text-first-row">8. scopuri umanitare sau de voluntariat;</div>
         </div>
         <div class="radio-paragraph">
-            <div class="radio-checkbox-row"><div class="radio {{checked9}}"></div></div>
+            <div class="radio-checkbox-row"><div class="radio {{reason_9}}"></div></div>
             <div class="radio-text-first-row">9. comercializarea de produse agroalimentare (în cazul producătorilor
                 agricoli)
             </div>
         </div>
         <div class="radio-paragraph">
-            <div class="radio-checkbox-row"><div class="radio selected {{checked10}}"></div></div>
+            <div class="radio-checkbox-row"><div class="radio {{reason_10}}"></div></div>
             <div class="radio-text-first-row">10. asigurarea de bunuri necesare desfășurării activității profesionale.
             </div>
         </div>
