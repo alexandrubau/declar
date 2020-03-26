@@ -3,41 +3,15 @@ $(document).ready(function () {
     let signaturePad = createSignaturePad();
     resizeSignaturePad(signaturePad);
 
-    let reasons = {
-        reason_1: 'deplasarea între domiciliu și locul de muncă, atunci când activitatea profesională este esențială și nu poate fi organizată sub formă de lucru la distanță sau deplasarea în interes profesional care nu poate fi amanată',
-        reason_2: 'consult medical de specialitate care nu poate fi amânat',
-        reason_3: 'deplasare pentru cumpărături de primă necesitate la unități comerciale din zona de domiciliu',
-        reason_4: 'deplasare pentru asigurarea asistenței pentru persoane în varstă, vulnerabile sau pentru insoțirea copiilor',
-        reason_5: 'deplasare scurtă, lângă domiciliu, pentru desfășurarea de activități fizice individuale, în aer liber, cu excluderea oricărei forme de activitate sportivă colectivă',
-        reason_6: 'deplasare scurtă, lângă domiciliu, legată de nevoile animalelor de companie',
-        reason_other: 'deplasare pentru rezolvarea urmatoarei situații urgente:',
-    };
-
     let formAddressSameInput = $('#form_address_same');
     let currentHour = new Date().getHours();
-
-    formAddressSameInput.on('change', function (event) {
-
-        let isChecked = $(this).is(':checked');
-
-        $('.js-form-residence :input:not(#form_address_same)').prop('disabled', isChecked);
-    });
-
-    $('input[name="form_reason"]').on('change', function (event) {
-
-        let selectedVal = $(this).val();
-
-        let isOther = selectedVal === 'reason_other';
-
-        $('#form_emergency_details').prop('disabled', !isOther);
-    });
 
     $('#form-signature-clear').on('click', function () {
 
         signaturePad.clear();
     });
 
-    $('#download').on('click', function (event) {
+    $('#download').on('submit', function (event) {
 
         event.preventDefault();
 
@@ -57,6 +31,10 @@ $(document).ready(function () {
         format: 'dd.mm.yyyy'
     });
 
+    $('#form_birth_date').datepicker({
+        format: 'dd.mm.yyyy'
+    });
+
     $('#form_start_hour').val(currentHour);
     $('#form_end_hour').val(currentHour + 1);
 
@@ -67,7 +45,7 @@ $(document).ready(function () {
         return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
     }
 
-    if(isFacebookBrowser()) {
+    if (isFacebookBrowser()) {
 
         $('#facebook-browser').removeClass("d-none");
         $('#allow-page-load').addClass("d-none");

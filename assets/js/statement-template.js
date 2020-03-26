@@ -1,3 +1,4 @@
+var templateString = `
 <style>
     .page {
         width: 18cm;
@@ -110,7 +111,7 @@
     <div class="paragraph" style="margin-top: 0.8cm;">
         <div class="info">Locul/locurile deplasării:</div>
         <div class="text-box text-box-xl">
-            &nbsp;
+            {{destinations}}
         </div>
         <div class="small-text" style="margin-top: 5px;">Se vor menționa locurile în care persoana se deplasează, în
             ordinea în care aceasta
@@ -201,3 +202,4 @@
         deplasarea fiind permisă zilnic doar în intervalul orar 11.00 – 13.00.
     </div>
 </div>
+`;
