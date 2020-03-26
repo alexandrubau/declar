@@ -3,17 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Descărcă de aici declarația pe propria răspundere în vederea deplasării pe teritoriul României, în contextul pandemiei de coronavirus.">
+
+    <meta property="og:url" content="https://alexandrubau.github.io/declar">
+    <meta property="og:title" content="Descarcă declarația pe propria raspundere">
+    <meta property="og:description" content="Descărcă de aici declarația pe propria răspundere în vederea deplasării pe teritoriul României, în contextul pandemiei de coronavirus.">
+    <meta property="og:image" content="https://alexandrubau.github.io/declar/assets/img/fb_cover.jpg">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.css">
 
     <title>Declarație pe propria răspundere pentru deplasare | COVID-19</title>
 </head>
 
 <body>
+
     <div class="container mt-3">
 
         <div class="jumbotron text-center">
-            <h1 class="display-4">Declarație pe propria raspundere</h1>
+            <h1 class="display-4">Declarație pe propria răspundere</h1>
             <p class="lead">Folosește această aplicație pentru a descărca declarația pe propria răspundere în vederea deplasării pe teritoriul României, în contextul pandemiei de coronavirus.</p>
             <hr class="my-4">
             <p>Ai încredere că datele tale personale sunt în siguranță. Acestea nu sunt transmise prin internet și nu părăsesc niciodată dispozitivul de pe care completezi.</p>
@@ -71,7 +80,7 @@
                             <input type="text" class="form-control" name="form_id_city" id="form_id_city" required>
                         </div>
                         <div class="form-group col-sm-12 col-md-6">
-                            <label for="form_id_county">Judet/Sector</label>
+                            <label for="form_id_county">Județ/Sector</label>
                             <input type="text" class="form-control" name="form_id_county" id="form_id_county" required>
                         </div>
                     </div>
@@ -86,7 +95,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-6 col-md-3">
+                        <div class="form-group col-3">
                             <label for="form_id_building">Bloc</label>
                             <input type="text" class="form-control" name="form_id_building" id="form_id_building">
                         </div>
@@ -118,7 +127,7 @@
                             <input type="text" class="form-control" name="form_city" id="form_city" required>
                         </div>
                         <div class="form-group col-sm-12 col-md-6">
-                            <label for="form_county">Judet/Sector</label>
+                            <label for="form_county">Județ/Sector</label>
                             <input type="text" class="form-control" name="form_county" id="form_county" required>
                         </div>
                     </div>
@@ -195,8 +204,11 @@
                                     <option>22</option>
                                     <option>23</option>
                                 </select>
-                                <select class="form-control" name="form_start_minute" id="form_start_minute">
-                                    <option>00</option><option>15</option><option>30</option><option>45</option>
+                                <select class="form-control mx-2" name="form_start_minute" id="form_start_minute">
+                                    <option>00</option>
+                                    <option>15</option>
+                                    <option>30</option>
+                                    <option>45</option>
                                 </select>
                             </div>
                         </div>
@@ -228,9 +240,8 @@
                                     <option>21</option>
                                     <option>22</option>
                                     <option>23</option>
-
                                 </select>
-                                <select class="form-control" name="form_end_minute" id="form_end_minute">
+                                <select class="form-control mx-2" name="form_end_minute" id="form_end_minute">
                                     <option>00</option>
                                     <option>15</option>
                                     <option>30</option>
@@ -303,17 +314,22 @@
                 <div style="height: 200px;">
                     <canvas class="w-100 h-100"></canvas>
                 </div>
-                <a href="javascript:void(0);" class="btn btn-secondary btn-block" id="form-signature-clear">Șterge semnatura</a>
+                <a href="javascript:void(0);" class="btn btn-secondary btn-block" id="form-signature-clear">Șterge semnătura</a>
                 <button type="submit" class="btn btn-success btn-block">Descarcă declarație</button>
             </form>
-            <p class="small text-muted text-center mt-3">Această aplicație a fost creată de voluntari. <br> Dorești să te implici? Vezi pe <a href="https://github.com/alexandrubau/declar" target="_blank">Github</a> codul sursă al aplicației. <br> #StamAcasa</p>
         </div>
+        <p class="small text-muted text-center mt-3">
+            Această aplicație a fost creată de voluntari. <br>
+            Dorești să te implici? Vezi pe <a href="https://github.com/alexandrubau/declar" target="_blank">Github</a> codul sursă al aplicației. <br>
+             #StamAcasa
+         </p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@1.5.3/dist/jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.js"></script>
     <script src="assets/js/font.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
