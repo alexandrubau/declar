@@ -16,8 +16,7 @@ Poti afla mai multe despre ce restrictii se impun in aceasta perioada accesand o
 
 ## 💾 Datele mele sunt stocate de acest site?
 
-Nu. Imediat ce ati terminat de generat o declaratie si ati parasit site-ul, datele dvs. sunt sterse din formular.
-Mai mult de atat, datele dvs. nici nu parasesc aplicatia.
+Nu. Am creat aceasta aplicatie tocmai pentru a lupta impotriva celor ce aduna date personale folosind aplicatii similare. Datele dvs. nu sunt transmise prin internet. Mai mult de atat, datele dvs. nu parasesc dispozitivul de pe care completati formularul.
 
 De aceea, pentru a oferi mai multa incredere utilizatorilor am decis sa pastram codul aplicatiei accesibil tuturor.
 
