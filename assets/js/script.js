@@ -42,9 +42,9 @@ $(document).ready(function () {
 
         let data = getFormData($('form'));
 
-        templateString = prepareTemplate(templateString, data);
+        let preparedTemplateString = prepareTemplate(templateString, data);
 
-        downloadDoc(templateString);
+        downloadDoc(preparedTemplateString);
     });
 
     $(window).on('resize', function () {
@@ -88,7 +88,6 @@ $(document).ready(function () {
     function prepareTemplate(str, data) {
         let regExStr = '{{' + templateVariables.join('}}|{{') + '}}';
         const regExpPattern = new RegExp(regExStr, 'gi');
-
         let explodedBirthDay = data.form_birth_date.split('.');
         let mapObj = {
             firstName: data.form_firstname,
@@ -100,19 +99,19 @@ $(document).ready(function () {
             county: data.form_county,
             streetName: data.form_street,
             streetNo: data.form_street_no,
-            building: data.form_building,
-            buildingEntrance: data.form_building_entrance,
-            floor: data.form_building_floor,
-            apartmentNo: data.form_appartment_no,
+            building: data.form_building ? 'Bloc ' + data.form_building + ',' : '',
+            buildingEntrance: data.form_building_entrance ? 'Sc. ' + data.form_building_entrance + ',' : '',
+            floor: data.form_building_floor ? 'Et. ' + data.form_building_floor + ',' : '',
+            apartmentNo: data.form_appartment_no ? 'Ap. ' + data.form_appartment_no : '',
             destinations: data.form_destinations,
             date: data.form_date,
-            signatureSrc: '' // TODO add signature base64
+            signatureSrc: signaturePad.toDataURL()
         };
         mapObj[data.form_reason] = 'selected';
 
         str = str.replace(regExpPattern, function (matched) {
             let variableName = matched.substring(2, matched.length - 2);
-            return mapObj[variableName];
+            return mapObj[variableName] ? mapObj[variableName] : ''
         });
         return str;
     }

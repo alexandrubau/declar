@@ -98,10 +98,10 @@ var templateString = `
     <div class="paragraph">
         <div class="info" style="margin-right: 7px;">Adresa locuinței:</div>
         <div class="text-box text-box-l">
-            {{city}}, {{county}}, {{streetName}}, {{streetNo}}
+            {{city}}, {{county}}, {{streetName}}, Nr. {{streetNo}}
         </div>
         <div class="text-box text-box-l" style="margin-left: 127px; margin-top: 5px;">
-            {{building}}, {{buildingEntrance}}, {{floor}}, {{apartmentNo}}
+            {{building}} {{buildingEntrance}} {{floor}} {{apartmentNo}} &nbsp;
         </div>
         <div class="small-text" style="margin-left: 134px; margin-top: 5px;">Se va completa adresa locuinței în care
             persoana locuiește
@@ -114,8 +114,7 @@ var templateString = `
             {{destinations}}
         </div>
         <div class="small-text" style="margin-top: 5px;">Se vor menționa locurile în care persoana se deplasează, în
-            ordinea în care aceasta
-            intenționează să-și desfășoare traseul.
+            ordinea în care aceasta intenționează să-și desfășoare traseul.
         </div>
     </div>
     <div class="paragraph" style="margin-top: 0.8cm;">
@@ -194,7 +193,7 @@ var templateString = `
         <div style="width: 49%; display: inline-block">Data declarației ............{{date}}............</div>
         <div style="width: 49%; display: inline-block">
             Semnătura
-            <img style="width: 130px; height: 70px;" src="{{signatureSrc}}">
+            <img style="width: 200px; height: 100px;" src="{{signatureSrc}}">
         </div>
     </div>
     <div style="font-weight: bold; font-size: 16px;">Persoanele care au împlinit vârsta de 65 de ani completează doar
