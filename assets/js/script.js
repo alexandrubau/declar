@@ -57,6 +57,18 @@ $(document).ready(function () {
         format: 'dd.mm.yyyy'
     });
 
+    function isFacebookBrowser() {
+        
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+        return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+    }
+
+    if(isFacebookBrowser()) {
+
+        window.open(window.location.href, '_system');
+    }
+
     function populateOnSameAddress(data) {
 
         data.form_city = "";
