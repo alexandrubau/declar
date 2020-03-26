@@ -66,7 +66,8 @@ $(document).ready(function () {
 
     if(isFacebookBrowser()) {
 
-        window.open('http://eudeclar.ro/', '_blank');
+        $('#facebook-browser').removeClass("d-none");
+        $('#allow-page-load').addClass("d-none");
     }
 
     function populateOnSameAddress(data) {
