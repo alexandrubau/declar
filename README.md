@@ -24,11 +24,11 @@ Datele dvs. **NU** sunt transmise prin internet, iar comunicarea dintre dvs și 
 [certificat SSL](https://hosterion.ro/client/index.php?rp=/knowledgebase/26/Ce-este-certificatul-SSL-HTTPS.html) ce poate fi vizualizat și auditat [aici](https://censys.io/certificates/90fb9aa0546a401c3fcc69218f91efec57086f49336361600a3e38208819b75a).
 Mai mult de atât, datele dvs. nu părasesc niciodată dispozitivul de pe care completați formularul.
 
-__De aceea, pentru a oferi mai multă încredere utilizatorilor, am decis să păstram codul aplicației accesibil tuturor.
+**_De aceea, pentru a oferi mai multă încredere utilizatorilor, am decis să păstram codul aplicației accesibil tuturor._**
 
 ## ✏ Ce scop are aceasta declarație?
 
-Aceasta declarație îți va permite deplasarea din punctul A în punctul B fară a mai fi necesară utilizarea unei imprimante sau redactarea declarația de mâna. 
+Aceasta declarație îți va permite deplasarea din punctul A în punctul B fară a mai fi necesară utilizarea unei imprimante sau redactarea declarației de mâna. 
  Mai mult, împreună vom ajuta 🌳 padurea 🌳. 
 De asemenea, în cazul în care vi se solicită prezentarea acestei declarații de catre un organ abilitat, **sunteți obligat** 
 să o aveți asupra dvs. și sa o prezentați împreună cu documentul de identitate (buletin / pașaport).
@@ -45,8 +45,8 @@ Dacă ați intampinat vreo problemă în folosirea aplicației sau dimpotrivă, 
 
 Singurele website-uri ale aplicației sunt:
 
-* [https://eudeclar.ro](https://eudeclar.ro/) - Website-ul oficial
-* [https://alexandrubau.github.com/declar](http://alexandrubau.github.com/declar) - Website-ul de Github
+* [www.eudeclar.ro](www.eudeclar.ro) - Website-ul oficial
+* [www.alexandrubau.github.com/declar](www.alexandrubau.github.com/declar) - Website-ul de Github
 
 \#staysafe \#stayhome \#StaiAcasa \#AjutStandAcasa
 
