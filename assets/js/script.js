@@ -159,7 +159,11 @@ $(document).ready(function () {
                 let doc = new jsPDF();
 
                 doc.addImage(templateImage[0], 'PNG', 15, 15);
+
+                //curent date(day and month) formatted like this 27.03.2020 => 27_03 
+                //we take out the year, let's be optimistic this will be over this year
                 const currentDayMonth = (new Date()).toLocaleDateString('ro').slice(0,5).replace(/\./g, '_');
+                
                 const fileName = 'declaratie_' + currentDayMonth + '.pdf';
                 doc.save(fileName);
             });
