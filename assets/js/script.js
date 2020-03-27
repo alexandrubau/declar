@@ -1,55 +1,53 @@
 $(document).ready(function () {
 
+    const templateVariables = [
+        'firstName',
+        'lastName',
+        'birthDay',
+        'birthMonth',
+        'birthYear',
+        'city',
+        'county',
+        'streetName',
+        'streetNo',
+        'building',
+        'buildingEntrance',
+        'floor',
+        'apartmentNo',
+        'destinations',
+        'date',
+        'signatureSrc',
+        'reason_1',
+        'reason_2',
+        'reason_3',
+        'reason_4',
+        'reason_5',
+        'reason_6',
+        'reason_7',
+        'reason_8',
+        'reason_9',
+        'reason_10',
+    ];
+
     let signaturePad = createSignaturePad();
     resizeSignaturePad(signaturePad);
 
-    let reasons = {
-        reason_1: 'deplasarea între domiciliu și locul de muncă, atunci când activitatea profesională este esențială și nu poate fi organizată sub formă de lucru la distanță sau deplasarea în interes profesional care nu poate fi amanată',
-        reason_2: 'consult medical de specialitate care nu poate fi amânat',
-        reason_3: 'deplasare pentru cumpărături de primă necesitate la unități comerciale din zona de domiciliu',
-        reason_4: 'deplasare pentru asigurarea asistenței pentru persoane în varstă, vulnerabile sau pentru insoțirea copiilor',
-        reason_5: 'deplasare scurtă, lângă domiciliu, pentru desfășurarea de activități fizice individuale, în aer liber, cu excluderea oricărei forme de activitate sportivă colectivă',
-        reason_6: 'deplasare scurtă, lângă domiciliu, legată de nevoile animalelor de companie',
-        reason_other: 'deplasare pentru rezolvarea urmatoarei situații urgente:',
-    };
-
-    let formAddressSameInput = $('#form_address_same');
-    let currentHour = new Date().getHours();
-
-    formAddressSameInput.on('change', function (event) {
-
-        let isChecked = $(this).is(':checked');
-
-        $('.js-form-residence :input:not(#form_address_same)').prop('disabled', isChecked);
-    });
-
-    $('input[name="form_reason"]').on('change', function (event) {
-
-        let selectedVal = $(this).val();
-
-        let isOther = selectedVal === 'reason_other';
-
-        $('#form_emergency_details').prop('disabled', !isOther);
-    });
-
     $('#form-signature-clear').on('click', function () {
-
         signaturePad.clear();
     });
 
-    $('form').on('submit', function (event) {
+    $('#download').on('submit', function (event) {
 
         event.preventDefault();
 
         let data = getFormData($('form'));
 
-        let doc = createDoc(data);
+        let preparedTemplateString = prepareTemplate(templateString, data);
 
-        downloadDoc(doc);
+        downloadDoc(preparedTemplateString);
     });
 
     $(window).on('resize', function () {
-
         resizeSignaturePad(signaturePad);
     });
 
@@ -58,34 +56,21 @@ $(document).ready(function () {
         format: 'dd.mm.yyyy'
     });
 
-    $('#form_start_hour').val(currentHour);
-    $('#form_end_hour').val(currentHour + 1);
+    $('#form_birth_date').datepicker({
+        format: 'dd.mm.yyyy'
+    });
 
     function isFacebookBrowser() {
 
         var ua = navigator.userAgent || navigator.vendor || window.opera;
 
-        return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+        return (ua.indexOf('FBAN') > -1) || (ua.indexOf('FBAV') > -1);
     }
 
-    if(isFacebookBrowser()) {
+    if (isFacebookBrowser()) {
 
-        $('#facebook-browser').removeClass("d-none");
-        $('#allow-page-load').addClass("d-none");
-    }
-
-    function populateOnSameAddress(data) {
-
-        data.form_city = "";
-        data.form_county = "";
-        data.form_street = "";
-        data.form_street_no = "";
-        data.form_building = "";
-        data.form_building_entrance = "";
-        data.form_building_floor = "";
-        data.form_appartment_no = "";
-
-        return data;
+        $('#facebook-browser').removeClass('d-none');
+        $('#allow-page-load').addClass('d-none');
     }
 
     function getFormData($form) {
@@ -93,17 +78,42 @@ $(document).ready(function () {
         let data = $form.serializeArray();
         let json = {};
 
-        $.map(data, function(item){
+        $.map(data, function (item) {
             json[item.name] = item.value;
         });
 
-        let isSameAddressChecked = formAddressSameInput.is(':checked');
-
-        if(isSameAddressChecked) {
-            json = populateOnSameAddress(json)
-        }
-
         return json;
+    }
+
+    function prepareTemplate(str, data) {
+        let regExStr = '{{' + templateVariables.join('}}|{{') + '}}';
+        const regExpPattern = new RegExp(regExStr, 'gi');
+        let explodedBirthDay = data.form_birth_date.split('.');
+        let mapObj = {
+            firstName: data.form_firstname,
+            lastName: data.form_lastname,
+            birthDay: explodedBirthDay[0],
+            birthMonth: explodedBirthDay[1],
+            birthYear: explodedBirthDay[2],
+            city: data.form_city,
+            county: data.form_county,
+            streetName: data.form_street,
+            streetNo: data.form_street_no,
+            building: data.form_building ? 'Bloc ' + data.form_building + ',' : '',
+            buildingEntrance: data.form_building_entrance ? 'Sc. ' + data.form_building_entrance + ',' : '',
+            floor: data.form_building_floor ? 'Et. ' + data.form_building_floor + ',' : '',
+            apartmentNo: data.form_appartment_no ? 'Ap. ' + data.form_appartment_no : '',
+            destinations: data.form_destinations,
+            date: data.form_date,
+            signatureSrc: signaturePad.toDataURL()
+        };
+        mapObj[data.form_reason] = 'selected';
+
+        str = str.replace(regExpPattern, function (matched) {
+            let variableName = matched.substring(2, matched.length - 2);
+            return mapObj[variableName] ? mapObj[variableName] : ''
+        });
+        return str;
     }
 
     function createSignaturePad() {
@@ -116,7 +126,7 @@ $(document).ready(function () {
     function resizeSignaturePad(signaturePad) {
 
         let canvas = $('canvas').get(0);
-        let ratio =  Math.max(window.devicePixelRatio || 1, 1);
+        let ratio = Math.max(window.devicePixelRatio || 1, 1);
 
         canvas.width = canvas.offsetWidth * ratio;
         canvas.height = canvas.offsetHeight * ratio;
@@ -125,89 +135,33 @@ $(document).ready(function () {
         signaturePad.clear();
     }
 
-    function createDoc(data) {
+    function downloadDoc(htmlString) {
+        Promise.all(
+            [
+                new Promise(function (resolve) {
+                    let iframe = document.createElement('iframe');
+                    iframe.id = 'pdfContainer';
+                    $('body').append($(iframe));
 
-        let doc = new jsPDF();
+                    let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    $('body', $(iframeDoc)).html(htmlString);
 
-        doc.setFontSize(12);
-        doc.setFont('Roboto', 'normal');
+                    html2canvas(iframeDoc.body, {
+                        onrendered: function (canvas) {
+                            resolve(canvas.toDataURL('image/png', 1));
+                            $(iframe).remove();
+                        },
+                    });
+                })
+            ])
+            .then(function (templateImage) {
 
-        doc.text('Declarație pe proprie răspundere,', 105, 30, { align: 'center' });
-        doc.text('Subsemnatul(a) _______________________________, fiul/fiica lui ____________ și al ____________,', 25, 50);
-        doc.text('domiciliat(ă) în ________________________________, județ/sectorul ________________________________,', 15, 60);
-        doc.text('stradă _____________________________, număr ____, bloc ____, scară ____, etaj ____, apartament ____,', 15, 70);
-        doc.text('având CNP _________________________________________, BI/CI serie _________, număr _____________,', 15, 80);
-        doc.text('Locuind(1) în fapt în ______________________________, județ/sectorul ____________________________,', 15, 100);
-        doc.text('stradă _____________________________, număr ____, bloc ____, scară ____, etaj ____, apartament ____,', 15, 110);
-        doc.text('Cunoscând prevederile art. 326, referitoare la falsul în declarații(2), precum și ale art. 352', 15, 130);
-        doc.text('referitoare la zădarnicirea combaterii bolilor din Noul Cod Penal, declar pe proprie răspundere', 15, 140);
-        doc.text('faptul că mă deplasez în interes personal/profesional, între orele ___________________________,', 15, 150);
-        doc.text('de la ______________________________________________________________________________________', 15, 160);
-        doc.text('pana la ___________________________________________________________________________________', 15, 170);
-        doc.text('pentru:', 15, 180);
-        doc.text('Atât declar, susțin și semnez.', 15, 220);
-        doc.text('Data:', 15, 230);
-        doc.text('Semnatura:', 140, 230);
+                let doc = new jsPDF();
 
-        doc.setFontSize(8);
+                doc.addImage(templateImage[0], 'PNG', 15, 15);
+                doc.save('declaratie_pe_propria_raspundere.pdf');
+            });
 
-        doc.text('(1) Se declară situația în care persoana nu locuiește la domiciliul prevăzut în actul de identitate.', 15, 265, { maxWidth: 185 });
-        doc.text('(2) Declararea necorespunzătoare a adevarului, facută unei persoane dintre cele prevăzute în art. 175 sau unei unităti în care aceasta își desfășoară activitatea în vederea producerii unei consecințe juridice, pentru sine sau pentru altul, atunci când, potrivit legii ori împrejurărilor, declarația făcută servește la producerea acelei consecințe, se pedepsește cu închisoare de la 3 luni la 2 ani sau cu amendă.', 15, 270, { maxWidth: 185 });
 
-        doc.setFontSize(10);
-
-        doc.text(data.form_id_lastname + ' ' + data.form_id_firstname, 86, 49, { align: 'center' });
-        doc.text(data.form_fathername, 149, 49, { align: 'center' });
-        doc.text(data.form_mothername, 182, 49, { align: 'center' });
-
-        doc.text(data.form_id_city, 76, 59, { align: 'center' });
-        doc.text(data.form_id_county, 165, 59, { align: 'center' });
-
-        doc.text(data.form_id_street, 56, 69, { align: 'center' });
-        doc.text(data.form_id_street_no, 101, 69, { align: 'center' });
-        doc.text(data.form_id_building, 120, 69, { align: 'center' });
-        doc.text(data.form_id_building_entrance, 140, 69, { align: 'center' });
-        doc.text(data.form_id_building_floor, 158, 69, { align: 'center' });
-        doc.text(data.form_id_appartment_no, 190, 69, { align: 'center' });
-
-        doc.text(data.form_pnc, 80, 79, { align: 'center' });
-        doc.text(data.form_id_series, 150, 79, { align: 'center' });
-        doc.text(data.form_id_number, 181, 79, { align: 'center' });
-
-        doc.text(data.form_city, 85, 99, { align: 'center' });
-        doc.text(data.form_county, 170, 99, { align: 'center' });
-
-        doc.text(data.form_street, 56, 109, { align: 'center' });
-        doc.text(data.form_street_no, 101, 109, { align: 'center' });
-        doc.text(data.form_building, 120, 109, { align: 'center' });
-        doc.text(data.form_building_entrance, 140, 109, { align: 'center' });
-        doc.text(data.form_building_floor, 158, 109, { align: 'center' });
-        doc.text(data.form_appartment_no, 190, 109, { align: 'center' });
-
-        doc.text(data.form_start_hour + ':' + data.form_start_minute + ' - ' + data.form_end_hour + ':' + data.form_end_minute, 165, 149, { align: 'center' });
-
-        doc.text(data.form_from, 30, 159);
-        doc.text(data.form_to, 35, 169);
-
-        doc.text(reasons[data.form_reason] ? reasons[data.form_reason] : '', 20, 190, { maxWidth: 180 });
-        doc.text(data.form_emergency_details ? data.form_emergency_details : '', 20, 195, { maxWidth: 180 });
-
-        doc.text(data.form_date, 30, 230);
-
-        let signatureImage = signaturePad.toDataURL();
-
-        doc.addImage(signatureImage, 'PNG', 135, 235, 50, 25);
-
-        return doc.output('datauristring');
-    }
-
-    function downloadDoc(content) {
-
-        const downloadLink = document.createElement('a');
-        const fileName = 'declaratie_pe_propria_raspundere.pdf';
-    
-        downloadLink.href = content;
-        downloadLink.download = fileName;
-        downloadLink.click();
     }
 });
