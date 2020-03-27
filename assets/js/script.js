@@ -79,7 +79,7 @@ $(document).ready(function () {
 
     let saveLocallyEnabled = localStorage.getItem(localStorage_save) === "false" ? false : true;
 
-    const saveIgnoredItems = ["form_start_hour",  "form_start_minute", "form_end_hour", "form_end_minute", "form_date"];
+    const saveIgnoredItems = ["form_date"];
 
     $("#save-check").prop("checked", saveLocallyEnabled);
 
