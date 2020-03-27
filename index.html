@@ -22,202 +22,168 @@
 
     <div class="container mt-3">
 
-        <div id="facebook-browser" class="alert alert-danger text-center d-none">
-            <p class="small">
-                Am detectat că folosiți Facebook Browser.<br/>
-                Din păcate, declarația nu poate fi descărcată din acest browser.
-            </p>
-            <p>
-                Vă rugăm să folosiți un alt browser (ex: <i>Google Chrome</i>, <i>Safari</i> ) și să accesați <b>eudeclar.ro</b>
-            </p>
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Declarație pe propria răspundere</h1>
+            <p class="lead">Folosește această aplicație pentru a descărca declarația pe propria răspundere în vederea deplasării pe teritoriul României, în contextul pandemiei de coronavirus.</p>
+            <hr class="my-4">
+            <p>Datele tale personale sunt în siguranță. <br>Acestea nu sunt transmise prin internet și nu părăsesc niciodată dispozitivul de pe care completezi. Se poate verifica sursa aplicației</p>
+            <a class="btn btn-primary btn-lg" href="#begin" role="button">Începe completarea &raquo;</a>
         </div>
 
-        <div id="allow-page-load">
+        <div class="col-12 p-0">
+            <form>
+                <div class="js-form-person">
+                    <div class="form-row">
+                        <div class="form-group col-sm-12 col-md-6">
+                            <label for="form_id_lastname" id="begin">Nume:</label>
+                            <input type="text" class="form-control" name="form_id_lastname" id="form_id_lastname" required>
+                        </div>
+                        <div class="form-group col-sm-12 col-md-6">
+                            <label for="form_id_firstname">Prenume:</label>
+                            <input type="text" class="form-control" name="form_id_firstname" id="form_id_firstname" required>
+                        </div>
+                    </div>
+                </div>
+                <h3>Data nașterii:</h3>
+                <div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-12 col-md-3">
+                            <label for="form_dob_day">Ziua:</label>
+                            <input type="text" class="form-control" name="form_dob_day" id="form_dob_day" required>
+                        </div>
+                        <div class="form-group col-sm-12 col-md-5">
+                            <label for="form_dob_month">Luna:</label>
+                            <input type="text" class="form-control" name="form_dob_month" id="form_dob_month"  data-date-end-date="0d" required>
+                        </div>
+                        <div class="form-group col-sm-12 col-md-4">
+                            <label for="form_dob_year">Anul:</label>
+                            <input type="text" class="form-control" name="form_dob_year" id="form_dob_year"  data-date-end-date="0d" required>
+                        </div>
+                    </div>
+                </div>
+                <h3>Adresa locuinței</h3>
+                <p class="small text-muted">Se va completa adresa locuinței în care persoana locuiește în fapt, indiferent dacă este identică sau nu cu cea menționată în actul de identitate.</p>
+                <hr>
+                <div class="js-form-home">
+                    <div class="form-row">
+                        <div class="form-group col-sm-12 col-md-12">
+                            <label for="form_id_address">Completați adresa la care locuiți.</label>
+                            <textarea type="text" class="form-control" name="form_id_address" id="form_id_address" value="city" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <h3>Itinerariu</h3>
+                <p class="small text-muted">Se vor menționa locurile în care persoana se deplasează, în ordinea în care aceasta intenționează să-și desfășoare traseul.</p>
+                <div class="js-form-itinerary">
+                    <div class="form-group">
+                        <textarea type="text" class="form-control" name="form_move_places" id="form_move_places" required></textarea>
+                    </div>
+                </div>
+                <div class="js-form-motive">
+                <h3>Motivul deplasării:</h3>    
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="form_reason[]" id="form_reason_1" value="reason_1">
+                            <label class="form-check-label" for="form_reason_1">
+                                1.interes profesional, inclusiv între locuință/gospodărie și locul/locurile de desfășurare aactivității profesionale și înapoi.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="form_reason[]" id="form_reason_2" value="reason_2">
+                            <label class="form-check-label" for="form_reason_2">
+                                2.asigurarea de bunuri care acoperă necesitățile de bază ale persoanelor și animalelor decompanie/domestice.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="form_reason[]" id="form_reason_3" value="reason_3">
+                            <label class="form-check-label" for="form_reason_3">
+                                3.asistență medicală care nu poate fi amânată și nici realizată de la distanță.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="form_reason[]" id="form_reason_4" value="reason_4">
+                            <label class="form-check-label" for="form_reason_4">
+                                4.motive justificate, precum îngrijirea/ însoțirea unui minor/copilului, asistența persoanelorvârstnice, bolnave sau cu dizabilități ori deces al unui membru de familie.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="form_reason[]" id="form_reason_5" value="reason_5">
+                            <label class="form-check-label" for="form_reason_5">
+                                5.activitate fizică individuală (cu excluderea oricăror activități sportive de echipă/ colective)sau pentru nevoile animalelor de companie/domestice, în apropierea locuinței.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="form_reason[]" id="form_reason_6" value="reason_6">
+                            <label class="form-check-label" for="form_reason_6">
+                                6.realizarea de activități agricole.
+                            </label>
+                        </div>
+                        <hr>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="form_reason[]" id="form_reason_6" value="reason_7">
+                            <label class="form-check-label" for="form_reason_7">
+                                7.donarea de sânge, la centrele de transfuzie sanguină.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="form_reason[]" id="form_reason_6" value="reason_8">
+                            <label class="form-check-label" for="form_reason_8">
+                                8.scopuri umanitare sau de voluntariat.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="form_reason[]" id="form_reason_6" value="reason_9">
+                            <label class="form-check-label" for="form_reason_9">
+                                9.comercializarea de produse agroalimentare (în cazul producătorilor agricoli).
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="form_reason[]" id="form_reason_6" value="reason_10">
+                            <label class="form-check-label" for="form_reason_10">
+                                10.asigurarea de bunuri necesare desfășurării activității profesionale.
+                            </label>
+                        </div>
+                        <p class="small text-muted">Se va bifa doar motivul/motivele deplasării dintre cele prevăzute în listă, nefiind permise deplasări realizate invocând alte motive decât cele prevăzute în Ordonanța Militară nr. 3/2020.</p>
+                    
+                       
+                    
+                    </div>
 
-            <div class="jumbotron text-center">
-                <h1 class="display-4">Declarație pe propria răspundere</h1>
-                <p class="lead">Folosește această aplicație pentru a descărca declarația pe propria răspundere în vederea deplasării pe teritoriul României, în contextul pandemiei de coronavirus.</p>
-                <hr class="my-4">
-                <p>Ai încredere că datele tale personale sunt în siguranță. Acestea nu sunt transmise prin internet și nu părăsesc niciodată dispozitivul de pe care completezi.</p>
-                <a class="btn btn-primary btn-lg" href="#begin" role="button">Începe completarea &raquo;</a>
-            </div>
-
-            <div class="col-12 p-0">
-                <form id="download">
-                    <h3 id="begin">Date personale</h3>
-                    <p class="small text-muted">Completați cu datele din buletin.</p>
-                    <hr>
-                    <div class="js-form-person">
+                    <h3>Data deplasării:</h3>    
+                    <div class="form-group">
                         <div class="form-row">
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_lastname" class="required">Nume</label>
-                                <input type="text" class="form-control" name="form_lastname" id="form_lastname" required>
-                            </div>
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_firstname" class="required">Prenume</label>
-                                <input type="text" class="form-control" name="form_firstname" id="form_firstname" required>
-                            </div>
-                            <div class="form-group col-sm-12 col-md-12">
-                                <label for="form_birth_date" class="required">Data nașterii</label>
-                                <input type="text" class="form-control" name="form_birth_date" id="form_birth_date" required>
+                            <div class="form-group col-sm-6 col-md-3">
+                                <input type="text" class="form-control" name="form_date" id="form_date" required>
                             </div>
                         </div>
-                    </div>
-                    <h3>Reședinta</h3>
-                    <p class="small text-muted">Se va completa adresa locuinței în care persoana locuiește în fapt, indiferent dacă este identică
-                        sau nu cu cea menționată în actul de identitate.</p>
-                    <hr>
-                    <div class="js-form-residence">
-                        <div class="form-row">
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_city" class="required">Localitate</label>
-                                <input type="text" class="form-control" name="form_city" id="form_city" required>
-                            </div>
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_county" class="required">Județ/Sector</label>
-                                <input type="text" class="form-control" name="form_county" id="form_county" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-9">
-                                <label for="form_street" class="required">Stradă</label>
-                                <input type="text" class="form-control" name="form_street" id="form_street" required>
-                            </div>
-                            <div class="form-group col-3">
-                                <label for="form_street_no" class="required">Număr</label>
-                                <input type="text" class="form-control" name="form_street_no" id="form_street_no" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-6 col-md-3">
-                                <label for="form_building">Bloc</label>
-                                <input type="text" class="form-control" name="form_building" id="form_building">
-                            </div>
-                            <div class="form-group col-6 col-md-3">
-                                <label for="form_building_entrance">Scară</label>
-                                <input type="text" class="form-control" name="form_building_entrance" id="form_building_entrance">
-                            </div>
-                            <div class="form-group col-6 col-md-3">
-                                <label for="form_building_floor">Etaj</label>
-                                <input type="text" class="form-control" name="form_building_floor" id="form_building_floor">
-                            </div>
-                            <div class="form-group col-6 col-md-3">
-                                <label for="form_appartment_no">Apartament</label>
-                                <input type="text" class="form-control" name="form_appartment_no" id="form_appartment_no">
-                            </div>
-                        </div>
-                    </div>
-                    <h3>Itinerariu</h3>
-                    <p class="small text-muted">Completați detaliile despre itinerariu.</p>
-                    <hr>
-                    <div class="js-form-itinerary">
-                        <div class="form-group">
-                            <label for="form_destinations" class="required">Locul/locurile deplasării</label>
-                            <input type="text" class="form-control" name="form_destinations" id="form_destinations" required>
-                            <small id="form_destinations_help" class="form-text text-muted">
-                                Se vor menționa locurile în care persoana se deplasează, în ordinea în care aceasta intenționează să-și desfășoare traseul.
-                            </small>
-                        </div>
-                        <div class="form-group">
-                            <label>Motivul deplasării</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_1" value="reason_1" required>
-                                <label class="form-check-label" for="form_reason_1">
-                                    interes profesional, inclusiv între locuință/gospodărie și locul/locurile de
-                                    desfășurare a activității profesionale și înapoi;
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_2" value="reason_2">
-                                <label class="form-check-label" for="form_reason_2">
-                                    asigurarea de bunuri care acoperă necesitățile de bază ale persoanelor și
-                                    animalelor de companie;
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_3" value="reason_3">
-                                <label class="form-check-label" for="form_reason_3">
-                                    asistență medicală care nu poate fi amânată și nici realizată de la distanță;
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_4" value="reason_4">
-                                <label class="form-check-label" for="form_reason_4">
-                                    motive justificate, precum îngrijirea/ însoțirea unui minor/copilului, asistența
-                                    persoanelor vârstnice, bolnave sau cu dizabilități ori deces al unui membru
-                                    de familie
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_5" value="reason_5">
-                                <label class="form-check-label" for="form_reason_5">
-                                    activitate fizică individuală (cu excluderea oricăror activități sportive de echipă
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_6" value="reason_6">
-                                <label class="form-check-label" for="form_reason_6">
-                                    realizarea de activități agricole
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_7" value="reason_7">
-                                <label class="form-check-label" for="form_reason_7">
-                                    donarea de sânge, la centrele de transfuzie sanguină
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_8" value="reason_8">
-                                <label class="form-check-label" for="form_reason_8">
-                                    scopuri umanitare sau de voluntariat
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_9" value="reason_9">
-                                <label class="form-check-label" for="form_reason_9">
-                                    comercializarea de produse agroalimentare (în cazul producătorilor agricoli)
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_10" value="reason_10">
-                                <label class="form-check-label" for="form_reason_10">
-                                    asigurarea de bunuri necesare desfășurării activității profesionale
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="form_date">Data</label>
-                            <input type="text" class="form-control" name="form_date" id="form_date" required>
-                        </div>
-                    </div>
-                    <h3>Semnătură</h3>
-                    <p class="small text-muted">Folosiți degetul sau cursorul pentru a semna.</p>
-                    <hr>
-                    <div style="height: 200px;">
-                        <canvas class="w-100 h-100"></canvas>
-                    </div>
-                    <a href="javascript:void(0);" class="btn btn-secondary btn-block" id="form-signature-clear">Șterge semnătura</a>
-                    <button type="submit" class="btn btn-success btn-block">Descarcă declarație</button>
-                </form>
-            </div>
+                    </div>  
+                </div>
+                <h3>Semnătură</h3>
+                <p class="small text-muted">Folosiți degetul sau cursorul pentru a semna.</p>
+                <hr>
+                <div style="height: 200px;">
+                    <canvas class="w-100 h-100"></canvas>
+                </div>
+                <a href="javascript:void(0);" class="btn btn-secondary btn-block" id="form-signature-clear">Șterge semnătura</a>
+                <button type="submit" class="btn btn-success btn-block">Descarcă declarație</button>
+            </form>
         </div>
         <p class="small text-muted text-center mt-3">
             Această aplicație a fost creată de voluntari. <br>
-            Dorești să te implici? Vezi pe <a href="https://github.com/alexandrubau/declar" target="_blank">Github</a> codul sursă al aplicației. <br>
+            Dorești să te implici? Vezi codul original al aplicației la <a href="https://github.com/alexandrubau/declar" target="_blank">Github</a> - sau implementarea curentă la <a href="https://github.com/ialbescu/declar" target="_blank">Github</a><br>
              #StamAcasa
          </p>
     </div>
 
-    <a href="https://github.com/alexandrubau/declar" class="github-corner" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/ialbescu/declar" class="github-corner" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jspdf@1.5.3/dist/jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script src="assets/js/font.js"></script>
-    <script src="assets/js/statement-template.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
