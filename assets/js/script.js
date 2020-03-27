@@ -57,7 +57,8 @@ $(document).ready(function () {
     });
 
     $('#form_birth_date').datepicker({
-        format: 'dd.mm.yyyy'
+        startView: 2,
+        format: 'dd.mm.yyyy',
     });
 
     function isFacebookBrowser() {

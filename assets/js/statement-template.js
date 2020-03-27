@@ -105,7 +105,7 @@ var templateString = `
         </div>
         <div class="small-text" style="margin-left: 134px; margin-top: 5px;">Se va completa adresa locuinței în care
             persoana locuiește
-            în fapt, indiferent<br> dacă este identică sau nu cu cea menționată în actul de identitate.
+            în fapt, indiferent dacă este identică sau nu cu cea menționată în actul de identitate.
         </div>
     </div>
     <div class="paragraph" style="margin-top: 0.8cm;">
@@ -114,7 +114,7 @@ var templateString = `
             {{destinations}}
         </div>
         <div class="small-text" style="margin-top: 5px;">Se vor menționa locurile în care persoana se deplasează, în
-            ordinea în care aceasta intenționează să-și <br>desfășoare traseul.
+            ordinea în care aceasta intenționează să-și desfășoare traseul.
         </div>
     </div>
     <div class="paragraph" style="margin-top: 0.8cm;">
