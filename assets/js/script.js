@@ -160,8 +160,7 @@ $(document).ready(function () {
 
                 doc.addImage(templateImage[0], 'PNG', 15, 15);
 
-                //curent date(day and month) formatted like this 27.03.2020 => 27_03 
-                //we take out the year, let's be optimistic this will be over this year
+                //curent date(day and month) formatted like this 27.03.2020 => 27_03_2020
                 const currentDayMonth = (new Date()).toLocaleDateString('ro').replace(/\./g, '_');
                 
                 const fileName = 'declaratie_pe_propria_raspundere_covid_' + currentDayMonth + '.pdf';
