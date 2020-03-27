@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.css">
+    <link rel="stylesheet" href="./assets/styles.css">
 
     <title>Declarație pe propria răspundere pentru deplasare | COVID-19</title>
 </head>
@@ -42,114 +43,48 @@
             </div>
 
             <div class="col-12 p-0">
-                <form>
+                <form id="download">
                     <h3 id="begin">Date personale</h3>
                     <p class="small text-muted">Completați cu datele din buletin.</p>
                     <hr>
                     <div class="js-form-person">
                         <div class="form-row">
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_id_lastname">Nume</label>
-                                <input type="text" class="form-control" name="form_id_lastname" id="form_id_lastname" required>
+                                <label for="form_lastname" class="required">Nume</label>
+                                <input type="text" class="form-control" name="form_lastname" id="form_lastname" required>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_id_firstname">Prenume</label>
-                                <input type="text" class="form-control" name="form_id_firstname" id="form_id_firstname" required>
+                                <label for="form_firstname" class="required">Prenume</label>
+                                <input type="text" class="form-control" name="form_firstname" id="form_firstname" required>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_fathername">Prenume Tată</label>
-                                <input type="text" class="form-control" name="form_fathername" id="form_fathername" required>
-                            </div>
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_mothername">Prenume Mamă</label>
-                                <input type="text" class="form-control" name="form_mothername" id="form_mothername" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="form_pnc">CNP</label>
-                            <input type="text" class="form-control" name="form_pnc" id="form_pnc" required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_id_series">Serie</label>
-                                <input type="text" class="form-control" name="form_id_series" id="form_id_series" required>
-                            </div>
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_id_number">Număr</label>
-                                <input type="text" class="form-control" name="form_id_number" id="form_id_number" required>
-                            </div>
-                        </div>
-                    </div>
-                    <h3>Domiciliu</h3>
-                    <p class="small text-muted">Completați cu datele din buletin.</p>
-                    <hr>
-                    <div class="js-form-home">
-                        <div class="form-row">
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_id_city">Localitate</label>
-                                <input type="text" class="form-control" name="form_id_city" id="form_id_city" required>
-                            </div>
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_id_county">Județ/Sector</label>
-                                <input type="text" class="form-control" name="form_id_county" id="form_id_county" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-9">
-                                <label for="form_id_street">Stradă</label>
-                                <input type="text" class="form-control" name="form_id_street" id="form_id_street" required>
-                            </div>
-                            <div class="form-group col-3">
-                                <label for="form_id_street_no">Număr</label>
-                                <input type="text" class="form-control" name="form_id_street_no" id="form_id_street_no" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-6 col-md-3">
-                                <label for="form_id_building">Bloc</label>
-                                <input type="text" class="form-control" name="form_id_building" id="form_id_building">
-                            </div>
-                            <div class="form-group col-6 col-md-3">
-                                <label for="form_id_building_entrance">Scară</label>
-                                <input type="text" class="form-control" name="form_id_building_entrance" id="form_id_building_entrance">
-                            </div>
-                            <div class="form-group col-6 col-md-3">
-                                <label for="form_id_building_floor">Etaj</label>
-                                <input type="text" class="form-control" name="form_id_building_floor" id="form_id_building_floor">
-                            </div>
-                            <div class="form-group col-6 col-md-3">
-                                <label for="form_id_appartment_no">Apartament</label>
-                                <input type="text" class="form-control" name="form_id_appartment_no" id="form_id_appartment_no">
+                            <div class="form-group col-sm-12 col-md-12">
+                                <label for="form_birth_date" class="required">Data nașterii</label>
+                                <input type="text" class="form-control" name="form_birth_date" id="form_birth_date" required>
                             </div>
                         </div>
                     </div>
                     <h3>Reședinta</h3>
-                    <p class="small text-muted">Completați adresa la care locuiți.</p>
+                    <p class="small text-muted">Se va completa adresa locuinței în care persoana locuiește în fapt, indiferent dacă este identică
+                        sau nu cu cea menționată în actul de identitate.</p>
                     <hr>
                     <div class="js-form-residence">
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" name="form_address_same" id="form_address_same">
-                            <label class="form-check-label" for="form_address_same">Locuiesc la adresa din buletin</label>
-                        </div>
                         <div class="form-row">
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_city">Localitate</label>
+                                <label for="form_city" class="required">Localitate</label>
                                 <input type="text" class="form-control" name="form_city" id="form_city" required>
                             </div>
                             <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_county">Județ/Sector</label>
+                                <label for="form_county" class="required">Județ/Sector</label>
                                 <input type="text" class="form-control" name="form_county" id="form_county" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-9">
-                                <label for="form_street">Stradă</label>
+                                <label for="form_street" class="required">Stradă</label>
                                 <input type="text" class="form-control" name="form_street" id="form_street" required>
                             </div>
                             <div class="form-group col-3">
-                                <label for="form_street_no">Număr</label>
+                                <label for="form_street_no" class="required">Număr</label>
                                 <input type="text" class="form-control" name="form_street_no" id="form_street_no" required>
                             </div>
                         </div>
@@ -177,143 +112,78 @@
                     <hr>
                     <div class="js-form-itinerary">
                         <div class="form-group">
-                            <label for="form_from">Punct de plecare</label>
-                            <input type="text" class="form-control" name="form_from" id="form_from" required>
-                            <small id="form_from_help" class="form-text text-muted">Introduceți locul din care plecați. Exemplu: domiciliu</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="form_to">Destinație</label>
-                            <input type="text" class="form-control" name="form_to" id="form_to" required>
-                            <small id="form_to_help" class="form-text text-muted">Introduceți locul în care doriți să ajungeți. Exemplu: farmacie</small>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_start_hour">Începând cu ora</label>
-                                <div class="input-group">
-                                    <select class="form-control mx-2" name="form_start_hour" id="form_start_hour">
-                                        <option>00</option>
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                        <option>05</option>
-                                        <option>06</option>
-                                        <option>07</option>
-                                        <option>08</option>
-                                        <option>09</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                        <option>13</option>
-                                        <option>14</option>
-                                        <option>15</option>
-                                        <option>16</option>
-                                        <option>17</option>
-                                        <option>18</option>
-                                        <option>19</option>
-                                        <option>20</option>
-                                        <option>21</option>
-                                        <option>22</option>
-                                        <option>23</option>
-                                    </select>
-                                    <select class="form-control mx-2" name="form_start_minute" id="form_start_minute">
-                                        <option>00</option>
-                                        <option>15</option>
-                                        <option>30</option>
-                                        <option>45</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group col-sm-12 col-md-6">
-                                <label for="form_end_hour">Până la ora</label>
-                                <div class="input-group">
-                                    <select class="form-control mx-2" name="form_end_hour" id="form_end_hour">
-                                        <option>00</option>
-                                        <option>01</option>
-                                        <option>02</option>
-                                        <option>03</option>
-                                        <option>04</option>
-                                        <option>05</option>
-                                        <option>06</option>
-                                        <option>07</option>
-                                        <option>08</option>
-                                        <option>09</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                        <option>13</option>
-                                        <option>14</option>
-                                        <option>15</option>
-                                        <option>16</option>
-                                        <option>17</option>
-                                        <option>18</option>
-                                        <option>19</option>
-                                        <option>20</option>
-                                        <option>21</option>
-                                        <option>22</option>
-                                        <option>23</option>
-                                    </select>
-                                    <select class="form-control mx-2" name="form_end_minute" id="form_end_minute">
-                                        <option>00</option>
-                                        <option>15</option>
-                                        <option>30</option>
-                                        <option>45</option>
-                                    </select>
-                                </div>
-                            </div>
+                            <label for="form_destinations" class="required">Locul/locurile deplasării</label>
+                            <input type="text" class="form-control" name="form_destinations" id="form_destinations" required>
+                            <small id="form_destinations_help" class="form-text text-muted">
+                                Se vor menționa locurile în care persoana se deplasează, în ordinea în care aceasta intenționează să-și desfășoare traseul.
+                            </small>
                         </div>
                         <div class="form-group">
                             <label>Motivul deplasării</label>
-                            <div class="form-check">
+                            <div class="form-check m-t">
                                 <input class="form-check-input" type="radio" name="form_reason" id="form_reason_1" value="reason_1" required>
                                 <label class="form-check-label" for="form_reason_1">
-                                    deplasarea între domiciliu și locul de muncă, atunci când activitatea profesională
-                                    este esențială și nu poate fi organizată sub formă de lucru la distanță sau deplasarea în interes
-                                    profesional care nu poate fi amânată;
+                                    interes profesional, inclusiv între locuință/gospodărie și locul/locurile de
+                                    desfășurare a activității profesionale și înapoi;
                                 </label>
                             </div>
-                            <div class="form-check">
+                            <div class="form-check m-t">
                                 <input class="form-check-input" type="radio" name="form_reason" id="form_reason_2" value="reason_2">
                                 <label class="form-check-label" for="form_reason_2">
-                                    consult medical de specialitate care nu poate fi amânat;
+                                    asigurarea de bunuri care acoperă necesitățile de bază ale persoanelor și
+                                    animalelor de companie;
                                 </label>
                             </div>
-                            <div class="form-check">
+                            <div class="form-check m-t">
                                 <input class="form-check-input" type="radio" name="form_reason" id="form_reason_3" value="reason_3">
                                 <label class="form-check-label" for="form_reason_3">
-                                    deplasare pentru cumpărături de primă necesitate la unități comerciale din zona de domiciliu;
+                                    asistență medicală care nu poate fi amânată și nici realizată de la distanță;
                                 </label>
                             </div>
-                            <div class="form-check">
+                            <div class="form-check m-t">
                                 <input class="form-check-input" type="radio" name="form_reason" id="form_reason_4" value="reason_4">
                                 <label class="form-check-label" for="form_reason_4">
-                                    deplasare pentru asigurarea asistenței pentru persoane în vârstă, vulnerabile sau
-                                    pentru însoțirea copiilor;
+                                    motive justificate, precum îngrijirea/ însoțirea unui minor/copilului, asistența
+                                    persoanelor vârstnice, bolnave sau cu dizabilități ori deces al unui membru
+                                    de familie
                                 </label>
                             </div>
-                            <div class="form-check">
+                            <div class="form-check m-t">
                                 <input class="form-check-input" type="radio" name="form_reason" id="form_reason_5" value="reason_5">
                                 <label class="form-check-label" for="form_reason_5">
-                                    deplasare scurtă, lângă domiciliu, pentru desfășurarea de activități fizice individuale,
-                                    în aer liber, cu excluderea oricărei forme de activitate sportivă colectivă;
+                                    activitate fizică individuală (cu excluderea oricăror activități sportive de echipă
                                 </label>
                             </div>
-                            <div class="form-check">
+                            <div class="form-check m-t">
                                 <input class="form-check-input" type="radio" name="form_reason" id="form_reason_6" value="reason_6">
                                 <label class="form-check-label" for="form_reason_6">
-                                    deplasare scurtă, lângă domiciliu, legată de nevoile animalelor de companie
+                                    realizarea de activități agricole
                                 </label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_other" value="reason_other">
-                                <label class="form-check-label" for="form_reason_other">
-                                    deplasare pentru rezolvarea următoarei situații urgente
+                            <div class="form-check m-t">
+                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_7" value="reason_7">
+                                <label class="form-check-label" for="form_reason_7">
+                                    donarea de sânge, la centrele de transfuzie sanguină
                                 </label>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="form_emergency_details">Detalii situație de urgență</label>
-                            <textarea class="form-control" name="form_emergency_details" id="form_emergency_details" rows="2" disabled></textarea>
+                            <div class="form-check m-t">
+                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_8" value="reason_8">
+                                <label class="form-check-label" for="form_reason_8">
+                                    scopuri umanitare sau de voluntariat
+                                </label>
+                            </div>
+                            <div class="form-check m-t">
+                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_9" value="reason_9">
+                                <label class="form-check-label" for="form_reason_9">
+                                    comercializarea de produse agroalimentare (în cazul producătorilor agricoli)
+                                </label>
+                            </div>
+                            <div class="form-check m-t">
+                                <input class="form-check-input" type="radio" name="form_reason" id="form_reason_10" value="reason_10">
+                                <label class="form-check-label" for="form_reason_10">
+                                    asigurarea de bunuri necesare desfășurării activității profesionale
+                                </label>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="form_date">Data</label>
@@ -349,7 +219,9 @@
     <script src="https://cdn.jsdelivr.net/npm/jspdf@1.5.3/dist/jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@chenfengyuan/datepicker@1.0.9/dist/datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script src="assets/js/font.js"></script>
+    <script src="assets/js/statement-template.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
