@@ -67,11 +67,81 @@ $(document).ready(function () {
 
         return (ua.indexOf('FBAN') > -1) || (ua.indexOf('FBAV') > -1);
     }
-
+  
     if (isFacebookBrowser()) {
+      
+        $('#facebook-browser').removeClass("d-none");
+        $('#allow-page-load').addClass("d-none");
+    }
 
-        $('#facebook-browser').removeClass('d-none');
-        $('#allow-page-load').addClass('d-none');
+    const localStorage_save = "save-locally";
+    const localStorage_data = "form-data";
+
+    let saveLocallyEnabled = localStorage.getItem(localStorage_save) === "false" ? false : true;
+
+    const saveIgnoredItems = ["form_date"];
+
+    $("#save-check").prop("checked", saveLocallyEnabled);
+
+    $("#save-check").change(function() {
+
+        saveLocallyEnabled = this.checked;
+
+        localStorage.setItem(localStorage_save, saveLocallyEnabled);
+
+        if(!saveLocallyEnabled) localStorage.removeItem(localStorage_data);
+
+    });
+
+    (function getLocalStorageData() {
+
+        if(!saveLocallyEnabled) return;
+        
+        const data = localStorage.getItem(localStorage_data);
+        
+        if(data) {
+            const parsed = JSON.parse(data);
+
+            Object.keys(parsed).forEach(function(item){
+                
+                if(saveIgnoredItems.includes(item)) return;
+
+                switch (item){
+
+                    case "form_reason":
+
+                        $("#form_" + parsed[item]).prop("checked", true);
+
+                        break;
+
+                    case "form_address_same":
+
+                        $("#form_address_same").prop("checked", parsed[item]);
+
+                        if(parsed[item]) $('.js-form-residence :input:not(#form_address_same)').prop('disabled', true);
+
+                        break;
+
+                    default:
+
+                        $("#" + item).val(parsed[item]);
+                }
+
+            });
+        }
+
+    })();
+
+    $("input[id^=form_]").map(function(idx, item) {
+        if(saveLocallyEnabled) $(item).on("change", save);
+    });
+
+    function save() {
+
+        const data = getFormData($('form'));
+
+        localStorage.setItem(localStorage_data, JSON.stringify(data));
+
     }
 
     function getFormData($form) {
