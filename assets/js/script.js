@@ -162,9 +162,9 @@ $(document).ready(function () {
 
                 //curent date(day and month) formatted like this 27.03.2020 => 27_03 
                 //we take out the year, let's be optimistic this will be over this year
-                const currentDayMonth = (new Date()).toLocaleDateString('ro').slice(0,5).replace(/\./g, '_');
+                const currentDayMonth = (new Date()).toLocaleDateString('ro').replace(/\./g, '_');
                 
-                const fileName = 'declaratie_' + currentDayMonth + '.pdf';
+                const fileName = 'declaratie_pe_propria_raspundere_covid_' + currentDayMonth + '.pdf';
                 doc.save(fileName);
             });
     }
