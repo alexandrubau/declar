@@ -46,4 +46,8 @@ Singurele website-uri ale aplicației sunt:
 #\#staysafe \#stayhome
 
 
+## Extra
+
+Știri Oficiale - [https://stirioficiale.ro/informatii]
+_Platformă care centralizează toate comunicatele oficiale, conferințele de presă și hotărârile Comitetului pentru Situații Speciale de Urgență_
 
