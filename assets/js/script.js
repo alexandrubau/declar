@@ -204,7 +204,10 @@ $(document).ready(function () {
     function downloadDoc(content) {
 
         const downloadLink = document.createElement('a');
-        const fileName = 'declaratie_pe_propria_raspundere.pdf';
+        //curent date(day and month) formatted like this 27.03.2020 => 27_03 
+        //we take out the year, let's be optimistic this will be over this year
+        const currentDayMonth = (new Date()).toLocaleDateString('ro').slice(0,5).replace(/\./g, '_');
+        const fileName = 'declaratie_' + currentDayMonth + '.pdf';
     
         downloadLink.href = content;
         downloadLink.download = fileName;
