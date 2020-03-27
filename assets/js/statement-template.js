@@ -22,17 +22,17 @@ var templateString = `
 
     .text-box-m {
         display: inline-block;
-        width: 39.5%;
+        width: 36%;
     }
 
     .text-box-l {
         display: inline-block;
-        width: 80%;
+        width: 73.3%;
     }
 
     .text-box-xl {
         display: inline-block;
-        width: 98.6%;
+        width: 92%;
     }
 
     .info {
@@ -91,9 +91,9 @@ var templateString = `
     </div>
     <div class="paragraph">
         <div class="info" style="margin-right: 30px;">Data nașterii:</div>
-        <div class="text-box" style="display: inline-block; width: 9%;">{{birthDay}}</div>
-        <div class="text-box" style="display: inline-block; width: 9%;">{{birthMonth}}</div>
-        <div class="text-box" style="display: inline-block; width: 19.3%;">{{birthYear}}</div>
+        <div class="text-box" style="display: inline-block; width: 8%;">{{birthDay}}</div>
+        <div class="text-box" style="display: inline-block; width: 8%;">{{birthMonth}}</div>
+        <div class="text-box" style="display: inline-block; width: 18.7%;">{{birthYear}}</div>
     </div>
     <div class="paragraph">
         <div class="info" style="margin-right: 7px;">Adresa locuinței:</div>
@@ -105,7 +105,7 @@ var templateString = `
         </div>
         <div class="small-text" style="margin-left: 134px; margin-top: 5px;">Se va completa adresa locuinței în care
             persoana locuiește
-            în fapt, indiferent dacă este identică sau nu cu cea menționată în actul de identitate.
+            în fapt, indiferent<br> dacă este identică sau nu cu cea menționată în actul de identitate.
         </div>
     </div>
     <div class="paragraph" style="margin-top: 0.8cm;">
@@ -114,7 +114,7 @@ var templateString = `
             {{destinations}}
         </div>
         <div class="small-text" style="margin-top: 5px;">Se vor menționa locurile în care persoana se deplasează, în
-            ordinea în care aceasta intenționează să-și desfășoare traseul.
+            ordinea în care aceasta intenționează să-și <br>desfășoare traseul.
         </div>
     </div>
     <div class="paragraph" style="margin-top: 0.8cm;">
