@@ -3,11 +3,12 @@
 
 > **[https://eudeclar.ro]** este un website ce are ca scop completarea și generarea electronică, în format PDF, a __declarațiilor pe proprie răspundere__ cu privire la deplasarea în spațiul public, în timpul stării de urgența din Romania.
 
-ℹ️Poți afla mai multe detalii despre restricțiile ce se impun în aceasta perioada, accesănd ordonanțele militare de mai jos:
+ℹ️Poți afla mai multe detalii despre restricțiile ce se impun în aceasta perioada, accesănd decretul privind instituirea stării de urgentă, precum și ordonanțele militare de mai jos:
 
-* [Ordonanța militara nr. 1 din 18 Martie 2020](https://www.mai.gov.ro/wp-content/uploads/2020/03/Ordonan%C8%9Ba-militar%C4%83-nr.-1-2020-m%C4%83suri-de-prima-urgen%C8%9B%C4%83-Decret.pdf)
-* [Ordonanța militara nr. 2 din 21 Martie 2020](https://www.mai.gov.ro/wp-content/uploads/2020/03/Ordonanta-militar%C4%83-nr.-2-2020-m%C4%83suri-prevenire-COVID-19-1-1.pdf)
-* [Ordonanța militara nr. 3 din 24 Martie 2020](https://www.mai.gov.ro/ordonanta-militara-nr-3-din-24-03-2020-privind-masuri-de-prevenire-a-raspandirii-covid-19/)
+* [DECRET Nr. 195 din 16 Martie 2020 - Privind Instituirea Stării De Urgenţă Pe Teritoriul României](https://www.defenseromania.ro/decretul-presedintelui-klaus-iohannis-privind-instituirea-starii-de-urgenta_602070.html)
+* [Ordonanța Militara nr. 1 din 18 Martie 2020](https://www.mai.gov.ro/wp-content/uploads/2020/03/Ordonan%C8%9Ba-militar%C4%83-nr.-1-2020-m%C4%83suri-de-prima-urgen%C8%9B%C4%83-Decret.pdf)
+* [Ordonanța Militara nr. 2 din 21 Martie 2020](https://www.mai.gov.ro/wp-content/uploads/2020/03/Ordonanta-militar%C4%83-nr.-2-2020-m%C4%83suri-prevenire-COVID-19-1-1.pdf)
+* [Ordonanța Militara nr. 3 din 24 Martie 2020](https://www.mai.gov.ro/ordonanta-militara-nr-3-din-24-03-2020-privind-masuri-de-prevenire-a-raspandirii-covid-19/)
 
 ## ⚡ Lucruri pe care considerăm că trebuie sa le stiți:
 1. _[https://eudeclar.ro]_ **NU** este un website guvernamental.
